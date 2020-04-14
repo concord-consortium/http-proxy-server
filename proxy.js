@@ -1,4 +1,4 @@
-const httpProxy = require('http-proxy');
+const httpProxy = require("http-proxy");
 
 const proxy = (options) => {
   return new Promise((resolve, reject) => {
@@ -6,6 +6,9 @@ const proxy = (options) => {
 
     if (!target) {
       reject(new Error("No target url specified.  Aborting!"));
+    }
+    if (!port) {
+      reject(new Error("No port specified.  Aborting!"));
     }
 
     log(`Creating proxy server to ${target}`)

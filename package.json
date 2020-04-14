@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nf start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "dependencies": {
     "foreman": "^3.0.1",
     "http-proxy": "^1.18.0"
+  },
+  "devDependencies": {
+    "jest": "^25.3.0",
+    "request-promise": "^4.2.5"
   }
 }
