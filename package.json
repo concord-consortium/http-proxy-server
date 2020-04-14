@@ -1,0 +1,24 @@
+{
+  "name": "http-proxy-server",
+  "version": "1.0.0",
+  "description": "A simple configurable http proxy server",
+  "main": "index.js",
+  "scripts": {
+    "start": "nf start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/concord-consortium/http-proxy-server.git"
+  },
+  "author": "Doug Martin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/concord-consortium/http-proxy-server/issues"
+  },
+  "homepage": "https://github.com/concord-consortium/http-proxy-server#readme",
+  "dependencies": {
+    "foreman": "^3.0.1",
+    "http-proxy": "^1.18.0"
+  }
+}
