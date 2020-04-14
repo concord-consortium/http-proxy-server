@@ -5,10 +5,13 @@ const proxy = (options) => {
     const {port, target, logRequests, log} = options;
 
     if (!target) {
-      reject(new Error("No target url specified.  Aborting!"));
+      reject(new Error("No target url specified. Aborting!"));
     }
     if (!port) {
-      reject(new Error("No port specified.  Aborting!"));
+      reject(new Error("No port specified. Aborting!"));
+    }
+    if (!log) {
+      reject(new Error("No log specified. Aborting!"));
     }
 
     log(`Creating proxy server to ${target}`)
@@ -24,7 +27,7 @@ const proxy = (options) => {
     }
 
     log("Setting error handler")
-    proxy.on("error", (err) => error(err.toString()));
+    proxy.on("error", (err) => log(err.toString()));
 
     log(`Listening on port ${port}`);
     proxy.listen(port);

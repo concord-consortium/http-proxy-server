@@ -4,7 +4,7 @@ const target = process.env.TARGET;
 const logRequests = process.env.LOG_REQUESTS === "true";
 
 if (!target) {
-  console.error("No TARGET url found in environment settings.  Aborting!");
+  console.error("No TARGET url found in environment settings. Aborting!");
   process.exit(1);
 }
 

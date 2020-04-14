@@ -8,12 +8,17 @@ const log = () => undefined;
 describe("setup", () => {
   test("aborts with no target", () => {
     return proxy({})
-      .catch(e => expect(e.toString()).toEqual("Error: No target url specified.  Aborting!"))
+      .catch(e => expect(e.toString()).toEqual("Error: No target url specified. Aborting!"))
   });
 
   test("aborts with no port", () => {
     return proxy({target: "http://localhost"})
-      .catch(e => expect(e.toString()).toEqual("Error: No port specified.  Aborting!"))
+      .catch(e => expect(e.toString()).toEqual("Error: No port specified. Aborting!"))
+  });
+
+  test("aborts with no log", () => {
+    return proxy({target: "http://localhost", port: proxyPort})
+      .catch(e => expect(e.toString()).toEqual("Error: No log specified. Aborting!"))
   });
 
   test("creates a proxy server with the default options", () => {
