@@ -2,6 +2,7 @@
 
 A simple configurable http proxy server
 
+[![Build Status](https://travis-ci.com/concord-consortium/http-proxy-server.svg?branch=master)](https://travis-ci.com/concord-consortium/http-proxy-server)
 
 ## Setup
 
