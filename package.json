@@ -19,7 +19,7 @@
   "homepage": "https://github.com/concord-consortium/http-proxy-server#readme",
   "dependencies": {
     "foreman": "^3.0.1",
-    "http-proxy": "^1.18.0"
+    "http-proxy": "^1.18.1"
   },
   "devDependencies": {
     "jest": "^25.3.0",
