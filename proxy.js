@@ -2,7 +2,7 @@ const httpProxy = require("http-proxy");
 
 const proxy = (options) => {
   return new Promise((resolve, reject) => {
-    const {port, target, logRequests, log} = options;
+    const {port, target, logRequests, log, newPath} = options;
 
     if (!target) {
       reject(new Error("No target url specified. Aborting!"));
@@ -14,6 +14,8 @@ const proxy = (options) => {
       reject(new Error("No log specified. Aborting!"));
     }
 
+    // newPath is optional
+
     log(`Creating proxy server to ${target}`)
     const proxy = httpProxy.createProxyServer({
       target,              // url to proxy requests to
@@ -22,9 +24,14 @@ const proxy = (options) => {
     });
 
     log(`${logRequests ? "Setting up" : "Skipping setting up"} request logger`);
-    if (logRequests) {
-      proxy.on("proxyReq", (proxyReq) => log("Request:", (new Date()).toString(), proxyReq.method, proxyReq.path));
-    }
+    proxy.on("proxyReq", (proxyReq) => {
+      if (logRequests) {
+        log("Request:", (new Date()).toString(), proxyReq.method, proxyReq.path)
+      }
+      if (newPath) {
+        proxyReq.path = newPath;
+      }
+    });
 
     log("Setting error handler")
     proxy.on("error", (err) => log(err.toString()));

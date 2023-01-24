@@ -14,6 +14,7 @@ Create `.env` file with the following values defined:
 TARGET=<url for target server>
 PORT=<port for proxy server>
 LOG_REQUESTS=<true|false> (optional, defaults to false)
+NEW_PATH=<path to rewrite request to> (optional)
 ```
 
 Example:
@@ -22,6 +23,7 @@ Example:
 TARGET=https://concord.org
 PORT=5000
 LOG_REQUESTS=true
+NEW_PATH=/logs
 ```
 
 ## Running
