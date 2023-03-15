@@ -26,7 +26,7 @@ const proxy = (options) => {
     log(`${logRequests ? "Setting up" : "Skipping setting up"} request logger`);
     proxy.on("proxyReq", (proxyReq) => {
       if (logRequests) {
-        log("Request:", (new Date()).toString(), proxyReq.method, proxyReq.path)
+        log("Request:", (new Date()).toString(), proxyReq.method, proxyReq.path, JSON.stringify(proxyReq.getHeaders()))
       }
       if (newPath) {
         proxyReq.path = newPath;
